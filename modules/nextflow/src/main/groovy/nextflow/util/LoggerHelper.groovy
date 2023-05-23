@@ -181,6 +181,7 @@ class LoggerHelper {
         }
 
         // -- the console appender
+        println "Creating console appender"
         this.consoleAppender = createConsoleAppender()
 
         // -- the syslog appender
@@ -222,8 +223,11 @@ class LoggerHelper {
             createLogger(clazz, Level.TRACE)
         }
 
+        println("Printing status of console appender")
         if(!consoleAppender)
             logger.debug "Console appender: disabled"
+        else
+            logger.debug("Console appender: enabled")
     }
 
     protected Logger createLogger(String clazz, Level level ) {
